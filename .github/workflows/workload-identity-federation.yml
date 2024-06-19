@@ -6,11 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Run a multi-line script
+        run: |
+          echo ${{ env.ENVIRONMENT_URL }}
+          echo ${{ env.APP_ID }}
+          echo ${{ env.TENANT_ID }}
       - name: Install 
         uses: microsoft/powerplatform-actions/actions-install@v1
-      - name: WhoAmI
-        uses: microsoft/powerplatform-actions/who-am-i@v1
-        with:
-          environment-url: ENVIRONMENT_URL
-          app-id: APP_ID
-          tenant-id: TENANT_ID
+      # - name: WhoAmI
+      #   uses: microsoft/powerplatform-actions/who-am-i@v1
+      #   with:
+      #     environment-url: ENVIRONMENT_URL
+      #     app-id: APP_ID
+      #     tenant-id: TENANT_ID
