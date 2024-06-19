@@ -9,6 +9,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "$ENVIRONMENT_URL"
+          echo "${{ secrets.ENVIRONMENT_URL }}"
           echo $APP_ID
           echo $TENANT_ID
       - name: Install 
