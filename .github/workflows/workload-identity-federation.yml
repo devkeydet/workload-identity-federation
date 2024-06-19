@@ -8,15 +8,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run a multi-line script
         run: |
-          echo "$ENVIRONMENT_URL"
           echo "${{ secrets.ENVIRONMENT_URL }}"
-          echo $APP_ID
-          echo $TENANT_ID
+          echo "${{ secrets.APP_ID }}"
+          echo "${{ secrets.TENANT_ID }}"
       - name: Install 
         uses: microsoft/powerplatform-actions/actions-install@v1
-      # - name: WhoAmI
-      #   uses: microsoft/powerplatform-actions/who-am-i@v1
-      #   with:
-      #     environment-url: ENVIRONMENT_URL
-      #     app-id: APP_ID
-      #     tenant-id: TENANT_ID
+      - name: WhoAmI
+        uses: microsoft/powerplatform-actions/who-am-i@v1
+        with:
+          environment-url: ${{ secrets.ENVIRONMENT_URL }}
+          app-id: ${{ secrets.APP_ID }}
+          tenant-id: ${{ secrets.TENANT_ID }}
