@@ -4,6 +4,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Grant permissions to the OIDC endpoint for federation
     steps:
       - uses: actions/checkout@v4
       - name: Run a multi-line script
