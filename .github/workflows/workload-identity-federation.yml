@@ -8,9 +8,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run a multi-line script
         run: |
-          echo ${{ env.ENVIRONMENT_URL }}
-          echo ${{ env.APP_ID }}
-          echo ${{ env.TENANT_ID }}
+          echo $ENVIRONMENT_URL
+          echo $APP_ID
+          echo $TENANT_ID
       - name: Install 
         uses: microsoft/powerplatform-actions/actions-install@v1
       # - name: WhoAmI
