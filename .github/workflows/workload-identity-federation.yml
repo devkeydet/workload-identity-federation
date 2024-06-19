@@ -7,17 +7,17 @@ jobs:
     permissions:
       id-token: write # Grant permissions to the OIDC endpoint for federation
     steps:
-      - uses: actions/checkout@v4
-      - name: Run a multi-line script
-        run: |
-          echo "${{ secrets.ENVIRONMENT_URL }}"
-          echo "${{ secrets.APP_ID }}"
-          echo "${{ secrets.TENANT_ID }}"
-      - name: Install 
+      - uses: actions/checkout@v4      
+      - name: InstallPowerPlatformActions
         uses: microsoft/powerplatform-actions/actions-install@v1
+        with:
+          add-tools-to-path: true
       - name: WhoAmI
         uses: microsoft/powerplatform-actions/who-am-i@v1
         with:
           environment-url: ${{ secrets.ENVIRONMENT_URL }}
           app-id: ${{ secrets.APP_ID }}
           tenant-id: ${{ secrets.TENANT_ID }}
+      - name: UsePowerPlatformCLI
+        run: |
+          pac
