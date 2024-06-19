@@ -18,6 +18,9 @@ jobs:
           environment-url: ${{ secrets.ENVIRONMENT_URL }}
           app-id: ${{ secrets.APP_ID }}
           tenant-id: ${{ secrets.TENANT_ID }}
+      - name: CreatePowerPlatformCLIAuthProfile
+        run: |
+          pac auth create --name actions-temp --githubFederated --tenant ${{ secrets.TENANT_ID }} --applicationId ${{ secrets.APP_ID }} --environment ${{ secrets.ENVIRONMENT_URL }}
       - name: UsePowerPlatformCLI
         run: |
-          pac
+          pac env who
